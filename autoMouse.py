@@ -3,6 +3,7 @@ import pydirectinput
 import config
 import time
 import math
+import keyboard
 
 def click():
     pydirectinput.mouseDown()
@@ -44,3 +45,8 @@ def altClickImage(image: str):
     pydirectinput.keyDown('alt')
     clickImage(image)
     pydirectinput.keyUp('alt')
+
+def checkEsc(): 
+    if keyboard.is_pressed('esc'):
+        print('Exiting...')
+        return True

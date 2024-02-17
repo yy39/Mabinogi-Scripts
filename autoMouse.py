@@ -22,25 +22,25 @@ def clickAt(x: int, y: int):
 def clickMainCenter():
     clickAt(math.floor(config.mainScreenSizeX / 2), math.floor(config.mainScreenSizeY / 2))
 
-def clickImage(pngName: str, retryCount: int=0): 
+def clickImage(image: str, retryCount: int=0): 
     try: 
-        imageCoords = pyautogui.locateCenterOnScreen(pngName + '.png', confidence=config.imageConfidence)
+        imageCoords = pyautogui.locateCenterOnScreen(image, confidence=config.imageConfidence)
     except Exception as e:
-        print(f'{type(e).__name__}: Unable to find {pngName}')
+        print(f'{type(e).__name__}: Unable to find {image}')
         if retryCount == config.retryMax:
             print('Max retries hit')
             retryCount = 0
             exit()
         retryCount = retryCount + 1
-        print(f'Sleeping for 10 seconds... Then retrying. Attempt {retryCount} of {config.retryMax}')
-        time.sleep(10)
-        clickImage(pngName, retryCount)
+        print(f'Sleeping for {config.sleepDuration} seconds... Then retrying. Attempt {retryCount} of {config.retryMax}')
+        time.sleep(config.sleepDuration)
+        clickImage(image, retryCount)
     else:
-        print(f'Image found: {pngName}')
+        print(f'image found: {image}')
         retryCount = 0
         clickAt(imageCoords[0], imageCoords[1])
 
-def altClickImage(pngName: str):
+def altClickImage(image: str):
     pydirectinput.keyDown('alt')
-    clickImage(pngName)
+    clickImage(image)
     pydirectinput.keyUp('alt')

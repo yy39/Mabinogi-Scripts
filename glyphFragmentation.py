@@ -1,6 +1,5 @@
 import pyautogui
 import time
-import keyboard
 import autoMouse
 
 choice = pyautogui.confirm(

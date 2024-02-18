@@ -1,5 +1,4 @@
 import pyautogui
-import pydirectinput
 import time
 import autoMouse 
 

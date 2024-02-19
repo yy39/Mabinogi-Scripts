@@ -8,7 +8,7 @@ choice = pyautogui.confirm(
     buttons=['OK', 'Cancel']
 )
 
-if choice == 'OK':
+if (choice == 'OK'):
     runNum = 1
 
     # Select Mabinogi window

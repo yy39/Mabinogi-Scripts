@@ -16,8 +16,8 @@ choice = pyautogui.confirm(
 # Select Mabinogi window
 autoMouse.clickMainCenter()
     
-while (True):
-    if (choice == 'OK'):
+if (choice == 'OK'):
+    while (True):
         if (runNum > config.glyphUseCount): 
             print('[ Imprint exhausted, disposing and resetting use count... ]')
             if autoMouse.checkEsc():
@@ -26,10 +26,7 @@ while (True):
             time.sleep(.2)
             if autoMouse.checkEsc():
                 break
-            pydirectinput.keyDown('alt')
-            time.sleep(.1)
-            autoMouse.clickImage('redGlyph')
-            pydirectinput.keyUp('alt')
+            autoMouse.altClickImage('redGlyph')
             autoMouse.clickAt(1408, 947)
             time.sleep(.2)
             if autoMouse.checkEsc():
@@ -61,5 +58,5 @@ while (True):
             if autoMouse.checkEsc():
                 break
             runNum += 1
-    else:
-        break
+else:
+    print('Script cancelled')

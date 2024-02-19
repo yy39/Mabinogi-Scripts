@@ -3,27 +3,10 @@ import pydirectinput
 import time
 import keyboard
 import autoMouse
+import config
 
 runNum = 1
 glyphNum = 1
-glyphUseCount = 10
-mainScreenSizeX = pyautogui.size()[0]
-mainScreenSizeY = pyautogui.size()[1]
-
-def click():
-    pydirectinput.mouseDown()
-    pydirectinput.mouseUp()
-
-def clickAndDragTo(x1, y1, x2, y2):
-    pydirectinput.moveTo(x1, y1)
-    pydirectinput.mouseDown()
-    pydirectinput.moveTo(x2, y2)
-    pydirectinput.mouseUp()
-
-def clickAt(x, y):
-    pydirectinput.moveTo(x, y)
-    pydirectinput.mouseDown()
-    pydirectinput.mouseUp()
 
 choice = pyautogui.confirm(
     text='Because this script moves your mouse and sends clicks, do not touch your computer while it runs.\r\rMake sure your inventory is open and that all your glyph imprints have max uses prior to pressing ok and then go touch grass or something.', 
@@ -36,7 +19,7 @@ autoMouse.clickMainCenter()
     
 while (True):
     if (choice == 'OK'):
-        if (runNum > glyphUseCount): 
+        if (runNum > config.glyphUseCount): 
             print('[ Imprint exhausted, disposing and resetting use count... ]')
             if keyboard.is_pressed('esc'):
                 print('Script exited')
@@ -50,39 +33,39 @@ while (True):
             time.sleep(.1)
             autoMouse.clickImage('redGlyph')
             pydirectinput.keyUp('alt')
-            clickAt(1408, 947)
+            autoMouse.clickAt(1408, 947)
             time.sleep(.2)
             if keyboard.is_pressed('esc'):
                 print('Script exited')
                 break
-            clickAt(1357,787)
+            autoMouse.clickAt(1357,787)
             if keyboard.is_pressed('esc'):
                 print('Script exited')
                 break
             runNum = 1
             glyphNum += 1
         else:
-            print(f'[ Glyph Imprint #{glyphNum} | Imprint Uses: {runNum}/{glyphUseCount} | Hold Esc to cancel. ]')
-            clickAt(736, 76)
+            print(f'[ Glyph Imprint #{glyphNum} | Imprint Uses: {runNum}/{config.glyphUseCount} | Hold Esc to cancel. ]')
+            autoMouse.clickAt(736, 76)
             time.sleep(.2)
             if keyboard.is_pressed('esc'):
                 print('Script exited')
                 break
-            clickAt(911, 537)
+            autoMouse.clickAt(911, 537)
             if keyboard.is_pressed('esc'):
                 print('Script exited')
                 break
-            clickAt(1222, 884)
+            autoMouse.clickAt(1222, 884)
             time.sleep(.2)
             if keyboard.is_pressed('esc'):
                 print('Script exited')
                 break
-            clickAt(1338, 792)
+            autoMouse.clickAt(1338, 792)
             time.sleep(.2)
             if keyboard.is_pressed('esc'):
                 print('Script exited')
                 break
-            clickAt(1338, 838)
+            autoMouse.clickAt(1338, 838)
             time.sleep(10)
             if keyboard.is_pressed('esc'):
                 print('Script exited')

@@ -2,7 +2,7 @@ import pyautogui
 import pydirectinput
 import time
 import keyboard
-import math
+import autoMouse
 
 runNum = 1
 glyphNum = 1
@@ -32,7 +32,7 @@ choice = pyautogui.confirm(
 )
 
 # Select Mabinogi window
-clickAt(math.floor(mainScreenSizeX / 2), math.floor(mainScreenSizeY / 2))
+autoMouse.clickMainCenter()
     
 while (True):
     if (choice == 'OK'):
@@ -41,14 +41,14 @@ while (True):
             if keyboard.is_pressed('esc'):
                 print('Script exited')
                 break
-            clickAt(pyautogui.locateCenterOnScreen('trash.png', confidence=0.9)[0], pyautogui.locateCenterOnScreen('trash.png', confidence=0.9)[1])
+            autoMouse.clickImage('trash')
             time.sleep(.2)
             if keyboard.is_pressed('esc'):
                 print('Script exited')
                 break
             pydirectinput.keyDown('alt')
             time.sleep(.1)
-            clickAt(pyautogui.locateCenterOnScreen('redGlyph.png', confidence=0.9)[0], pyautogui.locateCenterOnScreen('redGlyph.png', confidence=0.9)[1])
+            autoMouse.clickImage('redGlyph')
             pydirectinput.keyUp('alt')
             clickAt(1408, 947)
             time.sleep(.2)

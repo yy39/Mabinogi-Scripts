@@ -44,7 +44,12 @@ def clickOnArtifacts(image):
         retryCount = 0
         autoMouse.clickAt(imageCoords[0], imageCoords[1])
 
+# For the time being, create a loop that works using pre-defined inputs rather than using image recognition to determine needed info
+        
 # Select Mabinogi window
 autoMouse.clickMainCenter()
 autoMouse.clickImage('images/artifactInvestigationIcon.png')
-#sleep = determineSleep()
+time.sleep(.5) # allow window to appear
+autoMouse.clickAt(1133, 744)
+autoMouse.clickAt(1250, 866)
+#time.sleep(determineSleep(rank))

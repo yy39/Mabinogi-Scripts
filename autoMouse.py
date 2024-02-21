@@ -5,9 +5,13 @@ import time
 import math
 import keyboard
 
-def click():
+def click(slow: bool=False):
     pydirectinput.mouseDown()
+    if (slow):
+        time.sleep(.5)
     pydirectinput.mouseUp()
+    if (slow):
+        time.sleep(.5)
 
 def clickAndDragTo(x1: int, y1: int, x2: int, y2: int):
     pydirectinput.moveTo(x1, y1)
@@ -15,10 +19,9 @@ def clickAndDragTo(x1: int, y1: int, x2: int, y2: int):
     pydirectinput.moveTo(x2, y2)
     pydirectinput.mouseUp()
 
-def clickAt(x: int, y: int):
+def clickAt(x: int, y: int, slow: bool=False):
     pydirectinput.moveTo(x, y)
-    pydirectinput.mouseDown()
-    pydirectinput.mouseUp()
+    click(slow)
 
 def clickMainCenter():
     clickAt(math.floor(config.mainScreenSizeX / 2), math.floor(config.mainScreenSizeY / 2))

@@ -8,10 +8,10 @@ import keyboard
 def click(slow: bool=False):
     pydirectinput.mouseDown()
     if (slow):
-        time.sleep(.5)
+        time.sleep(.1)
     pydirectinput.mouseUp()
     if (slow):
-        time.sleep(.5)
+        time.sleep(.1)
 
 def clickAndDragTo(x1: int, y1: int, x2: int, y2: int):
     pydirectinput.moveTo(x1, y1)

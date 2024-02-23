@@ -9,3 +9,4 @@ As well as the following dependencies.
   - PyDirectInput
   - PyScreeze
   - opencv-python
+  - pytesseract

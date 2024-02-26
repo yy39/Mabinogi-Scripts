@@ -11,10 +11,19 @@ choice = pyautogui.confirm(
 )
 
 if (choice == 'OK'):
+    maxRuns = pyautogui.prompt(
+        text='Enter the amount of desired runs',
+        title='Enter Number',
+        default='0'
+    )
+
+    if (isinstance(maxRuns, int)):
+        runNum = 999
+
     # Select Mabinogi window
     autoMouse.clickMainCenter()
         
-    while (True):
+    while (runNum <= int(maxRuns)):
         print('************************************')
         print('**  Run #' + str(runNum) + ' | Hold Esc to cancel.  **')
         print('************************************')

@@ -2,7 +2,7 @@ import pyautogui
 
 runNum = 1
 glyphNum = 1
-glypUseCount = 10
+glyphUseCount = 10
 imageConfidence = 0.9
 sleepDuration = 5
 delay = .2

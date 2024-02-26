@@ -22,11 +22,11 @@ if (choice == 'OK'):
             print('[ Imprint exhausted, disposing and resetting use count... ]')
             if autoMouse.checkEsc():
                 break
-            autoMouse.clickImage('trash')
+            autoMouse.clickImage('images/trash.png')
             time.sleep(.2)
             if autoMouse.checkEsc():
                 break
-            autoMouse.altClickImage('redGlyph')
+            autoMouse.altClickImage('images/redGlyph.png')
             autoMouse.clickAt(1408, 947)
             time.sleep(.2)
             if autoMouse.checkEsc():
